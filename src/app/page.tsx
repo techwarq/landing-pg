@@ -2,7 +2,9 @@
 
 import type React from "react";
 import { useState, useEffect, useMemo } from "react";
-import { Mail, MapPin, Phone, Check, Menu, X, ArrowRight, Sparkles, Heart, Award, Users, Globe, Star, Shield, Zap, Target } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Mail, MapPin, Phone, Check, Menu, X, ArrowRight, Sparkles, Heart, Award, Users, Globe, Shield, Zap, Target } from "lucide-react";
 
 // Enhanced animations and styles
 const styles = `
@@ -217,7 +219,7 @@ const Button: React.FC<ButtonProps> = ({ children, className = "", variant = "de
 
 export default function Home() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+
   const navItems = [
     { label: 'About Us', id: 'about-us' },
     { label: 'Vision & Mission', id: 'vision-mission' },
@@ -245,7 +247,9 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => {
+    // Handle scroll if needed
+  };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -255,13 +259,15 @@ export default function Home() {
       {/* Enhanced Header */}
       <header className="px-4 lg:px-8 h-20 bg-white/95 backdrop-blur-md shadow-xl sticky top-0 z-50 border-b border-emerald-100">
         <div className="w-full max-w-7xl mx-auto h-full flex items-center gap-6">
-          <a href="/" className="flex items-center justify-center group" rel="home">
-            <img
+          <Link href="/" className="flex items-center justify-center group">
+            <Image
               src="/logo.png"
               alt="Nurture Lifescience logo"
+              width={96}
+              height={64}
               className="h-16 w-24 object-contain group-hover:scale-105 transition-transform duration-300"
             />
-          </a>
+          </Link>
           <nav className="ml-auto hidden lg:flex gap-8">
             {navItems.map(({ label, id }) => (
               <a
@@ -473,9 +479,11 @@ export default function Home() {
                   <div className="relative group">
                     <div className="absolute -inset-4 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
                     <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-emerald-200">
-                      <img
+                      <Image
                         src="/window.svg"
                         alt="Pharmaceutical Research"
+                        width={800}
+                        height={384}
                         className="w-full h-96 object-cover"
                       />
                     </div>
@@ -579,9 +587,11 @@ export default function Home() {
                   <div key={index} className="group">
                     <Card className="overflow-hidden rounded-2xl border-2 border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover bg-white">
                       <div className="relative">
-                        <img
+                        <Image
                           src={member.image}
                           alt={member.name}
+                          width={400}
+                          height={320}
                           className="w-full h-80 object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -663,9 +673,11 @@ export default function Home() {
                     <div className={`absolute top-0 left-0 w-full h-2 bg-gradient-to-r ${product.gradient}`}></div>
                     <CardContent className="p-8 text-center">
                       <div className="relative mb-6 group-hover:scale-105 transition-transform duration-300">
-                        <img
+                        <Image
                           src={product.image}
                           alt={product.title}
+                          width={400}
+                          height={192}
                           className="w-full h-48 object-contain rounded-lg shadow-lg"
                         />
                       </div>
@@ -788,7 +800,7 @@ export default function Home() {
                 </h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-teal-400 mx-auto rounded-full mb-6"></div>
                 <p className="text-xl text-emerald-100 max-w-3xl mx-auto font-light">
-                  Ready to partner with us? Let's discuss how we can work together to improve healthcare outcomes.
+                  Ready to partner with us? Let&apos;s discuss how we can work together to improve healthcare outcomes.
                 </p>
               </div>
               
@@ -848,9 +860,11 @@ export default function Home() {
               <div className="col-span-1 md:col-span-2">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-12 w-16 bg-white from-emerald-600 to-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                  <img
+                  <Image
               src="/logo.png"
               alt="Nurture Lifescience logo"
+              width={96}
+              height={64}
               className="h-16 w-24 object-contain group-hover:scale-105 transition-transform duration-300"
             />
                   </div>
