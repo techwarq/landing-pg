@@ -141,6 +141,8 @@ const productStructuredData = {
     "category": product.category,
     "image": `https://www.nurturelifescience.com${product.image}`,
     "url": `https://www.nurturelifescience.com/products/${product.id}`,
+    "sku": product.id,
+    "gtin": `NL-${product.id.toUpperCase()}`,
     "brand": {
       "@type": "Brand",
       "name": "Nurture Lifescience"
@@ -153,9 +155,55 @@ const productStructuredData = {
     "offers": {
       "@type": "Offer",
       "availability": "https://schema.org/InStock",
-      "category": "Pharmaceutical Product"
-    }
+      "category": "Pharmaceutical Product",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "0",
+        "priceCurrency": "INR",
+        "priceValidUntil": "2025-12-31"
+      },
+      "seller": {
+        "@type": "Organization",
+        "name": "Nurture Lifescience"
+      }
+    },
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Composition",
+        "value": product.composition
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Packaging",
+        "value": product.packaging
+      },
+      {
+        "@type": "PropertyValue",
+        "name": "Dosage",
+        "value": product.dosage
+      }
+    ]
   }))
+};
+
+const breadcrumbStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.nurturelifescience.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Products",
+      "item": "https://www.nurturelifescience.com/products"
+    }
+  ]
 };
 
 export default function ProductsPage() {
@@ -166,6 +214,12 @@ export default function ProductsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
         }}
       />
 

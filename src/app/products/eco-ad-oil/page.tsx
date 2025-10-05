@@ -34,6 +34,8 @@ const productStructuredData = {
   "description": "Natural baby massage oil enriched with vitamins for gentle care",
   "image": "https://www.nurturelifescience.com/WhatsApp%20Image%202025-08-11%20at%2008.34.38.jpeg",
   "category": "Baby Care Product",
+  "sku": "eco-ad-oil",
+  "gtin": "NL-ECO-AD-OIL",
   "brand": {
     "@type": "Brand",
     "name": "Nurture Lifescience"
@@ -46,7 +48,17 @@ const productStructuredData = {
   "offers": {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
-    "category": "Baby Care Product"
+    "category": "Baby Care Product",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "0",
+      "priceCurrency": "INR",
+      "priceValidUntil": "2025-12-31"
+    },
+    "seller": {
+      "@type": "Organization",
+      "name": "Nurture Lifescience"
+    }
   },
   "additionalProperty": [
     {

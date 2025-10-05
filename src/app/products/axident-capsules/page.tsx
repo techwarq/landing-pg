@@ -35,6 +35,8 @@ const productStructuredData = {
   "description": "Advanced antioxidant & multivitamin formulation for comprehensive health support",
   "image": "https://www.nurturelifescience.com/WhatsApp%20Image%202025-08-11%20at%2008.34.38%20(4).jpeg",
   "category": "Pharmaceutical Product",
+  "sku": "axident-capsules",
+  "gtin": "NL-AXIDENT-CAPSULES",
   "brand": {
     "@type": "Brand",
     "name": "Nurture Lifescience"
@@ -48,7 +50,17 @@ const productStructuredData = {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "category": "Pharmaceutical Product",
-    "description": "WHO-GMP certified, FDA compliant antioxidant and multivitamin capsules"
+    "description": "WHO-GMP certified, FDA compliant antioxidant and multivitamin capsules",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "0",
+      "priceCurrency": "INR",
+      "priceValidUntil": "2025-12-31"
+    },
+    "seller": {
+      "@type": "Organization",
+      "name": "Nurture Lifescience"
+    }
   },
   "additionalProperty": [
     {

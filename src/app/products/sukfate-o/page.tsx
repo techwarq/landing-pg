@@ -34,6 +34,8 @@ const productStructuredData = {
   "description": "Sucralfate with Oxetacane for superior gastric protection",
   "image": "https://www.nurturelifescience.com/WhatsApp%20Image%202025-08-11%20at%2008.34.39.jpeg",
   "category": "Gastrointestinal Product",
+  "sku": "sukfate-o",
+  "gtin": "NL-SUKFATE-O",
   "brand": {
     "@type": "Brand",
     "name": "Nurture Lifescience"
@@ -46,7 +48,17 @@ const productStructuredData = {
   "offers": {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
-    "category": "Gastrointestinal Product"
+    "category": "Gastrointestinal Product",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "0",
+      "priceCurrency": "INR",
+      "priceValidUntil": "2025-12-31"
+    },
+    "seller": {
+      "@type": "Organization",
+      "name": "Nurture Lifescience"
+    }
   },
   "additionalProperty": [
     {

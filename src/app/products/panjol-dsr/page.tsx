@@ -34,6 +34,8 @@ const productStructuredData = {
   "description": "Pantoprazole with Domperidone for comprehensive digestive care",
   "image": "https://www.nurturelifescience.com/WhatsApp%20Image%202025-08-11%20at%2008.34.38%20(3).jpeg",
   "category": "Digestive Health Product",
+  "sku": "panjol-dsr",
+  "gtin": "NL-PANJOL-DSR",
   "brand": {
     "@type": "Brand",
     "name": "Nurture Lifescience"
@@ -46,7 +48,17 @@ const productStructuredData = {
   "offers": {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
-    "category": "Digestive Health Product"
+    "category": "Digestive Health Product",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "0",
+      "priceCurrency": "INR",
+      "priceValidUntil": "2025-12-31"
+    },
+    "seller": {
+      "@type": "Organization",
+      "name": "Nurture Lifescience"
+    }
   },
   "additionalProperty": [
     {

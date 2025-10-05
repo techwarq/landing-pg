@@ -294,7 +294,7 @@ export default function Home() {
     { label: 'About Us', id: 'about-us' },
     { label: 'Vision & Mission', id: 'vision-mission' },
     { label: 'Team', id: 'team' },
-    { label: 'Products', id: 'products' },
+    { label: 'Products', href: '/products' },
     { label: 'Why Choose Us', id: 'why-choose-us' },
     { label: 'Contact Us', id: 'contact-us' },
   ];
@@ -348,15 +348,26 @@ export default function Home() {
             />
           </Link>
           <nav className="ml-auto hidden lg:flex gap-8">
-            {navItems.map(({ label, id }) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                className="relative text-base font-medium text-gray-700 hover:text-emerald-600 transition-all duration-300 group"
-              >
-                {label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
+            {navItems.map((item) => (
+              item.href ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="relative text-base font-medium text-gray-700 hover:text-emerald-600 transition-all duration-300 group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:w-full transition-all duration-300"></span>
+                </Link>
+              ) : (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className="relative text-base font-medium text-gray-700 hover:text-emerald-600 transition-all duration-300 group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 group-hover:w-full transition-all duration-300"></span>
+                </a>
+              )
             ))}
           </nav>
           <Button
@@ -386,15 +397,26 @@ export default function Home() {
             </div>
             <nav className="px-6 py-8">
               <div className="flex flex-col gap-6">
-                {navItems.map(({ label, id }) => (
-                  <a
-                    key={id}
-                    href={`#${id}`}
-                    className="text-lg text-gray-800 hover:text-emerald-600 transition-colors duration-300 py-2 border-b border-gray-100 hover:border-emerald-200"
-                    onClick={() => setIsMobileNavOpen(false)}
-                  >
-                    {label}
-                  </a>
+                {navItems.map((item) => (
+                  item.href ? (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="text-lg text-gray-800 hover:text-emerald-600 transition-colors duration-300 py-2 border-b border-gray-100 hover:border-emerald-200"
+                      onClick={() => setIsMobileNavOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={item.id}
+                      href={`#${item.id}`}
+                      className="text-lg text-gray-800 hover:text-emerald-600 transition-colors duration-300 py-2 border-b border-gray-100 hover:border-emerald-200"
+                      onClick={() => setIsMobileNavOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  )
                 ))}
               </div>
             </nav>
@@ -476,8 +498,8 @@ export default function Home() {
               
               {/* Enhanced CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8">
-                <a
-                  href="#products"
+                <Link
+                  href="/products"
                   className="group relative inline-flex items-center justify-center text-emerald-900 bg-white/95 hover:bg-white transition-all duration-500 cursor-pointer text-lg font-semibold px-12 py-6 rounded-2xl shadow-2xl hover:shadow-white/25 hover:scale-105 min-w-[240px] overflow-hidden border-2 border-white/20 animate-pulse-glow"
                 >
                   <span className="relative z-10 flex items-center gap-3">
@@ -485,7 +507,7 @@ export default function Home() {
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-teal-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </a>
+                </Link>
 
                 <a
                   href="#contact-us"

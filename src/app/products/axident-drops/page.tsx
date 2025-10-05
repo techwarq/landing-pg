@@ -34,6 +34,8 @@ const productStructuredData = {
   "description": "Lycopene, Multivitamin, Multimineral & Antioxidant Drops for pediatric care",
   "image": "https://www.nurturelifescience.com/WhatsApp%20Image%202025-08-11%20at%2008.34.37.jpeg",
   "category": "Pediatric Pharmaceutical Product",
+  "sku": "axident-drops",
+  "gtin": "NL-AXIDENT-DROPS",
   "brand": {
     "@type": "Brand",
     "name": "Nurture Lifescience"
@@ -46,7 +48,17 @@ const productStructuredData = {
   "offers": {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
-    "category": "Pediatric Pharmaceutical Product"
+    "category": "Pediatric Pharmaceutical Product",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "0",
+      "priceCurrency": "INR",
+      "priceValidUntil": "2025-12-31"
+    },
+    "seller": {
+      "@type": "Organization",
+      "name": "Nurture Lifescience"
+    }
   },
   "additionalProperty": [
     {

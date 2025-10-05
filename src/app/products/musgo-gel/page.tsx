@@ -34,6 +34,8 @@ const productStructuredData = {
   "description": "Diclofenac range for effective anti-inflammatory and analgesic relief",
   "image": "https://www.nurturelifescience.com/WhatsApp%20Image%202025-08-11%20at%2008.34.40.jpeg",
   "category": "Pain Management Product",
+  "sku": "musgo-gel",
+  "gtin": "NL-MUSGO-GEL",
   "brand": {
     "@type": "Brand",
     "name": "Nurture Lifescience"
@@ -46,7 +48,17 @@ const productStructuredData = {
   "offers": {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
-    "category": "Pain Management Product"
+    "category": "Pain Management Product",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "0",
+      "priceCurrency": "INR",
+      "priceValidUntil": "2025-12-31"
+    },
+    "seller": {
+      "@type": "Organization",
+      "name": "Nurture Lifescience"
+    }
   },
   "additionalProperty": [
     {
