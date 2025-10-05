@@ -1,0 +1,224 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, Shield, Award, Check } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Eco AD Oil - Natural Baby Massage Oil | Nurture Lifescience",
+  description: "Eco AD Oil is a natural baby massage oil enriched with vitamins A & D for gentle care. Dermatologically tested, safe for baby's delicate skin.",
+  keywords: [
+    "Eco AD Oil",
+    "baby massage oil",
+    "natural baby oil",
+    "vitamin A D oil",
+    "baby care products",
+    "infant massage oil",
+    "dermatologically tested",
+    "baby skincare",
+    "Nurture Lifescience"
+  ],
+  openGraph: {
+    title: "Eco AD Oil - Baby Care | Nurture Lifescience",
+    description: "Natural baby massage oil enriched with vitamins for gentle care",
+    images: ["/WhatsApp%20Image%202025-08-11%20at%2008.34.38.jpeg"],
+  },
+  alternates: {
+    canonical: "/products/eco-ad-oil",
+  },
+};
+
+const productStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Eco AD Oil",
+  "description": "Natural baby massage oil enriched with vitamins for gentle care",
+  "image": "https://www.nurturelifescience.com/WhatsApp%20Image%202025-08-11%20at%2008.34.38.jpeg",
+  "category": "Baby Care Product",
+  "brand": {
+    "@type": "Brand",
+    "name": "Nurture Lifescience"
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "Nurture Lifescience",
+    "url": "https://www.nurturelifescience.com"
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "category": "Baby Care Product"
+  },
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Composition",
+      "value": "Natural oils with Vitamin A & D"
+    },
+    {
+      "@type": "PropertyValue", 
+      "name": "Packaging",
+      "value": "100ml Bottle"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Usage",
+      "value": "For external use only"
+    }
+  ]
+};
+
+export default function EcoAdOilPage() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productStructuredData),
+        }}
+      />
+
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt="Nurture Lifescience"
+                width={200}
+                height={80}
+                className="h-12 w-auto"
+              />
+            </Link>
+            <nav className="hidden md:flex space-x-8">
+              <Link href="/" className="text-gray-600 hover:text-emerald-600">Home</Link>
+              <Link href="/products" className="text-emerald-600 font-medium">Products</Link>
+              <Link href="/#about-us" className="text-gray-600 hover:text-emerald-600">About</Link>
+              <Link href="/#contact-us" className="text-gray-600 hover:text-emerald-600">Contact</Link>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <div className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <nav className="flex items-center space-x-2 text-sm">
+            <Link href="/" className="text-gray-500 hover:text-emerald-600">Home</Link>
+            <span className="text-gray-400">/</span>
+            <Link href="/products" className="text-gray-500 hover:text-emerald-600">Products</Link>
+            <span className="text-gray-400">/</span>
+            <span className="text-emerald-600 font-medium">Eco AD Oil</span>
+          </nav>
+        </div>
+      </div>
+
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <div className="relative h-96 bg-gray-100 rounded-lg">
+                <Image
+                  src="/WhatsApp%20Image%202025-08-11%20at%2008.34.38.jpeg"
+                  alt="Eco AD Oil"
+                  fill
+                  className="object-contain p-4"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="px-3 py-1 bg-pink-100 text-pink-800 text-sm font-medium rounded-full">
+                    Baby Care
+                  </span>
+                </div>
+                <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                  Eco AD Oil
+                </h1>
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  Natural baby massage oil enriched with vitamins A & D for gentle care. 
+                  Dermatologically tested and specially formulated for baby&apos;s delicate skin.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Benefits</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {[
+                    "Natural and gentle formula",
+                    "Enriched with essential vitamins",
+                    "Ideal for baby massage",
+                    "Dermatologically tested",
+                    "Safe for delicate skin",
+                    "Non-greasy formulation"
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex items-center gap-3">
+                      <Check className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                      <span className="text-gray-700">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Product Information</h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between">
+                    <span className="font-medium text-gray-700">Composition:</span>
+                    <span className="text-gray-600">Natural oils with Vitamin A & D</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium text-gray-700">Usage:</span>
+                    <span className="text-gray-600">For external use only</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium text-gray-700">Packaging:</span>
+                    <span className="text-gray-600">100ml Bottle</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-medium text-gray-700">Application:</span>
+                    <span className="text-gray-600">Gentle massage on baby&apos;s skin</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-emerald-50 rounded-lg p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Quality Certifications</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="flex items-center gap-3">
+                    <Shield className="h-6 w-6 text-emerald-600" />
+                    <span className="text-gray-700 font-medium">WHO-GMP Certified</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Award className="h-6 w-6 text-emerald-600" />
+                    <span className="text-gray-700 font-medium">FDA Compliant</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Check className="h-6 w-6 text-emerald-600" />
+                    <span className="text-gray-700 font-medium">FSSAI Approved</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <Link
+                  href="/#contact-us"
+                  className="flex-1 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-emerald-700 transition-colors"
+                >
+                  Contact for Information
+                </Link>
+                <Link
+                  href="/products"
+                  className="flex items-center justify-center px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                >
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Back to Products
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

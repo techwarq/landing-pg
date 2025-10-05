@@ -220,6 +220,76 @@ const Button: React.FC<ButtonProps> = ({ children, className = "", variant = "de
 export default function Home() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
+  // Structured data for products
+  const productsStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Nurture Lifescience Pharmaceutical Products",
+    "description": "High-quality pharmaceutical products for healthcare professionals and patients",
+    "itemListElement": [
+      {
+        "@type": "Product",
+        "name": "AXIDENT Soft Gelatin Capsules & Drops",
+        "description": "Advanced antioxidant & multivitamin formulation for comprehensive health support",
+        "category": "Pharmaceutical",
+        "brand": {
+          "@type": "Brand",
+          "name": "Nurture Lifescience"
+        }
+      },
+      {
+        "@type": "Product", 
+        "name": "Eco AD Oil",
+        "description": "Natural baby massage oil enriched with vitamins for gentle care",
+        "category": "Pharmaceutical",
+        "brand": {
+          "@type": "Brand",
+          "name": "Nurture Lifescience"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "MUSGO GEL and Oil", 
+        "description": "Diclofenac range for effective anti-inflammatory and analgesic relief",
+        "category": "Pharmaceutical",
+        "brand": {
+          "@type": "Brand",
+          "name": "Nurture Lifescience"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "SUKFATE O",
+        "description": "Sucralfate with Oxetacane for superior gastric protection", 
+        "category": "Pharmaceutical",
+        "brand": {
+          "@type": "Brand",
+          "name": "Nurture Lifescience"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "PANJOL DSR",
+        "description": "Pantoprazole with Domperidone for comprehensive digestive care",
+        "category": "Pharmaceutical", 
+        "brand": {
+          "@type": "Brand",
+          "name": "Nurture Lifescience"
+        }
+      },
+      {
+        "@type": "Product",
+        "name": "AXIDENT Drops",
+        "description": "Lycopene, Multivitamin, Multimineral & Antioxidant Drops for pediatric care",
+        "category": "Pharmaceutical",
+        "brand": {
+          "@type": "Brand", 
+          "name": "Nurture Lifescience"
+        }
+      }
+    ]
+  };
+
   const navItems = [
     { label: 'About Us', id: 'about-us' },
     { label: 'Vision & Mission', id: 'vision-mission' },
@@ -256,16 +326,25 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50 antialiased overflow-x-hidden">
+      {/* Structured Data for Products */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productsStructuredData),
+        }}
+      />
       {/* Enhanced Header */}
       <header className="px-4 lg:px-8 h-20 bg-white/95 backdrop-blur-md shadow-xl sticky top-0 z-50 border-b border-emerald-100">
         <div className="w-full max-w-7xl mx-auto h-full flex items-center gap-6">
           <Link href="/" className="flex items-center justify-center group">
             <Image
               src="/logo.png"
-              alt="Nurture Lifescience logo"
-              width={96}
-              height={64}
-              className="h-16 w-24 object-contain group-hover:scale-105 transition-transform duration-300"
+              alt="Nurture Lifescience - Trusted Healthcare Partner"
+              width={250}
+              height={206}
+              className="h-16 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              priority={true}
+              sizes="(max-width: 768px) 200px, 250px"
             />
           </Link>
           <nav className="ml-auto hidden lg:flex gap-8">
@@ -481,10 +560,13 @@ export default function Home() {
                     <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-emerald-200">
                       <Image
                         src="/window.svg"
-                        alt="Pharmaceutical Research"
+                        alt="Pharmaceutical Research and Development at Nurture Lifescience"
                         width={800}
                         height={384}
                         className="w-full h-96 object-cover"
+                        priority={false}
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                     </div>
                   </div>
@@ -589,10 +671,12 @@ export default function Home() {
                       <div className="relative">
                         <Image
                           src={member.image}
-                          alt={member.name}
+                          alt={`${member.name} - ${member.title} at Nurture Lifescience`}
                           width={400}
                           height={320}
                           className="w-full h-80 object-cover"
+                          loading="lazy"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       </div>
@@ -636,37 +720,43 @@ export default function Home() {
                     title: "AXIDENT Soft Gelatin Capsules & Drops",
                     description: "Advanced antioxidant & multivitamin formulation for comprehensive health support",
                     image: "/WhatsApp%20Image%202025-08-11%20at%2008.34.38%20(4).jpeg",
-                    gradient: "from-blue-500 to-purple-600"
+                    gradient: "from-blue-500 to-purple-600",
+                    link: "/products/axident-capsules"
                   },
                   {
                     title: "Eco AD Oil",
                     description: "Natural baby massage oil enriched with vitamins for gentle care",
                     image: "/WhatsApp%20Image%202025-08-11%20at%2008.34.38.jpeg",
-                    gradient: "from-pink-500 to-rose-600"
+                    gradient: "from-pink-500 to-rose-600",
+                    link: "/products/eco-ad-oil"
                   },
                   {
                     title: "MUSGO GEL and Oil",
                     description: "Diclofenac range for effective anti-inflammatory and analgesic relief",
                     image: "/WhatsApp%20Image%202025-08-11%20at%2008.34.40.jpeg",
-                    gradient: "from-green-500 to-emerald-600"
+                    gradient: "from-green-500 to-emerald-600",
+                    link: "/products/musgo-gel"
                   },
                   {
                     title: "SUKFATE O",
                     description: "Sucralfate with Oxetacane for superior gastric protection",
                     image: "/WhatsApp%20Image%202025-08-11%20at%2008.34.39.jpeg",
-                    gradient: "from-orange-500 to-red-600"
+                    gradient: "from-orange-500 to-red-600",
+                    link: "/products/sukfate-o"
                   },
                   {
                     title: "PANJOL DSR",
                     description: "Pantoprazole with Domperidone for comprehensive digestive care",
                     image: "/WhatsApp%20Image%202025-08-11%20at%2008.34.38%20(3).jpeg",
-                    gradient: "from-indigo-500 to-blue-600"
+                    gradient: "from-indigo-500 to-blue-600",
+                    link: "/products/panjol-dsr"
                   },
                   {
                     title: "AXIDENT Drops",
                     description: "Lycopene, Multivitamin, Multimineral & Antioxidant Drops for pediatric care",
                     image: "/WhatsApp%20Image%202025-08-11%20at%2008.34.37.jpeg",
-                    gradient: "from-teal-500 to-cyan-600"
+                    gradient: "from-teal-500 to-cyan-600",
+                    link: "/products/axident-drops"
                   }
                 ].map((product, index) => (
                   <Card key={index} className="group relative overflow-hidden rounded-2xl border-2 border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover bg-white">
@@ -675,10 +765,12 @@ export default function Home() {
                       <div className="relative mb-6 group-hover:scale-105 transition-transform duration-300">
                         <Image
                           src={product.image}
-                          alt={product.title}
+                          alt={`${product.title} - Pharmaceutical Product by Nurture Lifescience`}
                           width={400}
                           height={192}
                           className="w-full h-48 object-contain rounded-lg shadow-lg"
+                          loading="lazy"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                       </div>
                       <CardTitle className="text-xl font-bold text-gray-900 mb-4 leading-tight group-hover:text-emerald-700 transition-colors duration-300">
@@ -688,9 +780,12 @@ export default function Home() {
                         {product.description}
                       </CardDescription>
                       <div className="mt-6 flex justify-center">
-                        <div className="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-medium border border-emerald-200">
+                        <Link
+                          href={product.link}
+                          className="px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-medium border border-emerald-200 hover:bg-emerald-100 transition-colors"
+                        >
                           Learn More
-                        </div>
+                        </Link>
                       </div>
                     </CardContent>
                   </Card>
@@ -862,10 +957,12 @@ export default function Home() {
                   <div className="h-12 w-16 bg-white from-emerald-600 to-teal-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg">
                   <Image
               src="/logo.png"
-              alt="Nurture Lifescience logo"
-              width={96}
-              height={64}
-              className="h-16 w-24 object-contain group-hover:scale-105 transition-transform duration-300"
+              alt="Nurture Lifescience - Trusted Healthcare Partner"
+              width={250}
+              height={206}
+              className="h-12 w-auto object-contain"
+              loading="lazy"
+              sizes="(max-width: 768px) 150px, 200px"
             />
                   </div>
                   <span className="text-2xl font-bold">Nurture Lifescience</span>
