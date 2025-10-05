@@ -519,6 +519,30 @@ export default function Home() {
                   </span>
                 </a>
               </div>
+
+              {/* Product Quick Links for Sitelinks */}
+              <div className="pt-12">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                  <Link href="/products/axident-capsules" className="text-emerald-100 hover:text-white text-sm font-medium transition-colors duration-300">
+                    AXIDENT Capsules
+                  </Link>
+                  <Link href="/products/axident-drops" className="text-emerald-100 hover:text-white text-sm font-medium transition-colors duration-300">
+                    AXIDENT Drops
+                  </Link>
+                  <Link href="/products/eco-ad-oil" className="text-emerald-100 hover:text-white text-sm font-medium transition-colors duration-300">
+                    Eco AD Oil
+                  </Link>
+                  <Link href="/products/musgo-gel" className="text-emerald-100 hover:text-white text-sm font-medium transition-colors duration-300">
+                    MUSGO GEL
+                  </Link>
+                  <Link href="/products/sukfate-o" className="text-emerald-100 hover:text-white text-sm font-medium transition-colors duration-300">
+                    SUKFATE O
+                  </Link>
+                  <Link href="/products/panjol-dsr" className="text-emerald-100 hover:text-white text-sm font-medium transition-colors duration-300">
+                    PANJOL DSR
+                  </Link>
+                </div>
+              </div>
               
               {/* Scroll Indicator */}
               <div className="pt-16 animate-bounce">
@@ -1007,13 +1031,38 @@ export default function Home() {
                 <div className="space-y-3">
                   {[
                     { label: 'About Us', id: 'about-us' },
-                    { label: 'Products', id: 'products' },
+                    { label: 'Products', href: '/products' },
                     { label: 'Team', id: 'team' },
                     { label: 'Contact', id: 'contact-us' },
-                  ].map(({ label, id }) => (
-                    <a key={id} href={`#${id}`} className="block text-gray-300 hover:text-white transition-colors duration-300">
+                  ].map((item) => (
+                    item.href ? (
+                      <Link key={item.href} href={item.href} className="block text-gray-300 hover:text-white transition-colors duration-300">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <a key={item.id} href={`#${item.id}`} className="block text-gray-300 hover:text-white transition-colors duration-300">
+                        {item.label}
+                      </a>
+                    )
+                  ))}
+                </div>
+              </div>
+
+              {/* Product Links */}
+              <div>
+                <h3 className="text-lg font-semibold mb-6 text-emerald-400">Our Products</h3>
+                <div className="space-y-3">
+                  {[
+                    { label: 'AXIDENT Capsules', href: '/products/axident-capsules' },
+                    { label: 'AXIDENT Drops', href: '/products/axident-drops' },
+                    { label: 'Eco AD Oil', href: '/products/eco-ad-oil' },
+                    { label: 'MUSGO GEL', href: '/products/musgo-gel' },
+                    { label: 'SUKFATE O', href: '/products/sukfate-o' },
+                    { label: 'PANJOL DSR', href: '/products/panjol-dsr' },
+                  ].map(({ label, href }) => (
+                    <Link key={href} href={href} className="block text-gray-300 hover:text-white transition-colors duration-300">
                       {label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

@@ -217,6 +217,63 @@ export default function RootLayout({
             }),
           }}
         />
+        <Script id="ld-sitelinks" type="application/ld+json" strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Nurture Lifescience",
+              "url": "https://www.nurturelifescience.com/",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.nurturelifescience.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              },
+              "mainEntity": {
+                "@type": "ItemList",
+                "name": "Product Sitelinks",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "AXIDENT Capsules",
+                    "url": "https://www.nurturelifescience.com/products/axident-capsules"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "AXIDENT Drops",
+                    "url": "https://www.nurturelifescience.com/products/axident-drops"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Eco AD Oil",
+                    "url": "https://www.nurturelifescience.com/products/eco-ad-oil"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "MUSGO GEL",
+                    "url": "https://www.nurturelifescience.com/products/musgo-gel"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "name": "SUKFATE O",
+                    "url": "https://www.nurturelifescience.com/products/sukfate-o"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 6,
+                    "name": "PANJOL DSR",
+                    "url": "https://www.nurturelifescience.com/products/panjol-dsr"
+                  }
+                ]
+              }
+            }),
+          }}
+        />
         {children}
       </body>
     </html>
