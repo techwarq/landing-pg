@@ -696,22 +696,11 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 {[
                   {
-                    name: "Mr. Prayas",
-                    title: "HR Head", 
-                    subtitle: "Founder of Nurture Lifescience",
-                    image: "/WhatsApp%20Image%202025-08-05%20at%2010.04.03%20(1).jpeg"
-                  },
-                  {
-                    name: "Gita Devi",
-                    title: "Founder",
-                    image: "/WhatsApp%20Image%202025-08-05%20at%2011.00.16%20(1).jpeg"
-                  },
-                  {
                     name: "Mr. Pratush", 
                     title: "Sales Head",
                     image: "/WhatsApp%20Image%202025-08-02%20at%2022.25.17%20(2).jpeg"
                   }
-                ].map((member, index) => (
+                ].map((member: { name: string; title: string; subtitle?: string; image: string }, index) => (
                   <div key={index} className="group">
                     <Card className="overflow-hidden rounded-2xl border-2 border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 card-hover bg-white">
                       <div className="relative">
