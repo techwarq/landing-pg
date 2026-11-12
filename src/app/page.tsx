@@ -939,8 +939,8 @@ export default function Home() {
                   {
                     icon: Phone,
                     title: "Phone",
-                    content: "6370730352",
-                    link: "tel:6370730352"
+                    content: "9937005585",
+                    link: "tel:9937005585"
                   },
                   {
                     icon: Mail,
@@ -1062,7 +1062,7 @@ export default function Home() {
                 <div className="space-y-3 text-gray-300">
                   <div className="flex items-center gap-2">
                     <Phone className="w-4 h-4" />
-                    <span>6370730352</span>
+                    <span>9937005585</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="w-4 h-4" />

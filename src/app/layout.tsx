@@ -120,7 +120,7 @@ export default function RootLayout({
               url: "https://www.nurturelifescience.com/",
               logo: "https://www.nurturelifescience.com/logo.png",
               email: "info@nurturelifescience.com",
-              telephone: "+916370730352",
+              telephone: "+919937005585",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Panchkula",
@@ -155,7 +155,7 @@ export default function RootLayout({
               url: "https://www.nurturelifescience.com/",
               logo: "https://www.nurturelifescience.com/logo.png",
               image: "https://www.nurturelifescience.com/logo.png",
-              telephone: "+916370730352",
+              telephone: "+919937005585",
               email: "info@nurturelifescience.com",
               address: {
                 "@type": "PostalAddress",
